@@ -1,6 +1,9 @@
 {
     "elements": {},
     "attributes": {
+        "form": {
+            "context": "label"
+        },
         "<br": {
             "context": "input"
         }

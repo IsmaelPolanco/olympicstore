@@ -4,7 +4,7 @@ session_start();
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "olympicstore";
+$dbname = "olimpicstore_v3";
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
@@ -12,19 +12,19 @@ if (!$conn) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nombre_usuario = $_POST["nombre_usuario"];
+    $nickname = $_POST["nickname"];
     $contraseña = $_POST["contraseña"];
-    
-    $sql = "SELECT * FROM usuarios WHERE nombre_usuario = '$nombre_usuario' AND contraseña = '$contraseña'";
+
+    $sql = "SELECT * FROM usuarios WHERE nickname = '$nickname' AND contraseña = '$contraseña'";
     $result = mysqli_query($conn, $sql);
-    
+
     if (mysqli_num_rows($result) == 1) {
         $row = mysqli_fetch_assoc($result);
-        $_SESSION["usuario_id"] = $row["id_usuario"];
-        $_SESSION["nombre"] = $row["nombre_usuario"];
-        header("location: index.php");
+        $_SESSION["ID_usuario"] = $row["ID_usuario"];
+        $_SESSION["nickname"] = $row["nickname"];
+        header("location: inicio.php");
     } else {
-        $error = "Nombre de usuario o contraseña incorrecta.";
+        $error = "Nombre de usuario, contraseña o nickname incorrecto.";
     }
 }
 ?>
@@ -33,14 +33,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>OLIYMPIC STORE</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="style.css">
     </head>
-    <body>
+    <body>  
         <div class="div_top">
-            OLYMPICSTORE
+            OLYMPIC STORE
         </div>
         <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
             <div class="div_general">
@@ -50,19 +50,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <img class="imagen" src="logo.png">
                         </div>
                         <div class="div_login_usucon">
-                            <p>Usuario: </p> <input class="usucontra" type="text" required=""><br><br>
-                            <p>Contraseña:</p> <input class="usucontra" type="password" required> <br><br>
-                            <button>Login</button>
+                            <p>Usuario: </p> <input class="usucontra" type="text" name="nickname" required=""><br><br>
+                            <p>Contraseña:</p> <input class="usucontra" type="password" name="contraseña" required> <br><br>
+                            <button type="submit">Login</button> 
                         </div>
                     </div>
                 </div>
             </div>
         </form>
+        <?php
+        if (!empty($error)) {
+            echo '<p style="text-align: center;">' . $error . '</p>';
+        }
+        ?>
     </body>
 </html>
-
-<?php
-if (!empty($error)) {
-    echo "<p>$error</p>";
-}
-?>

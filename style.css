@@ -1,6 +1,8 @@
+
+
 body{
     margin: 0px;
-    color: white;
+    color: black;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .div_top{
@@ -8,6 +10,7 @@ body{
     width: 100%;
     height: 150px;
     background-color: black;
+    color: white;
     text-align: center;
     justify-content: space-around;
     text-align: center;
@@ -17,19 +20,17 @@ body{
     font-weight: bold;
 }
 
-/*---------------------------------------------------------
-    INICIO DE SESION
------------------------------------------------------------*/
 .div_general{
-    margin-top: 40px;
     width: 100%;
-    height: 490px;
+    height: 80%;
     background-color: white;
     justify-content: space-around;
     display: flex;
-    text-align: center;
+    align-items: center;
+    align-content: center;
     flex-direction: row;
     flex-flow: wrap;
+    color: black;
 }
 .div_login{
     display: flex;
@@ -38,6 +39,7 @@ body{
     width: 85%;
     height: 100%;
     background-color: white;
+    color: white;
 }
 .div_login_iniciosesion{
     height: 80%;
@@ -60,7 +62,7 @@ body{
     display: flex;
     text-align: center;
     flex-direction: row;
-    flex-flow: wrap;    
+    flex-flow: wrap;
     border-radius: 2px;
 }
 .div_login_usucon{
@@ -82,11 +84,6 @@ body{
 .usucontra{
     border-radius: 3px;
 }
-/---------------------------------------------------------
-    TIENDA
------------------------------------------------------------/
-
-/MENU/
 .div_top_tienda{
     padding-top: 100px;
     width: 100%;
@@ -102,6 +99,64 @@ body{
     font-weight: bold;
     position: fixed;
 }
+
+.div_top_tienda_inicio{
+    padding-top: 100px;
+    width: 100%;
+    height: 232px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    justify-content: space-around;
+    text-align: center;
+    flex-direction: row;
+    flex-flow: wrap;
+    font-size: 28px;
+    font-weight: bold;
+    position: fixed;
+}
+
+.usuario {
+    float: left;
+    position: absolute;
+    color: white;
+    top: 33%;
+    left: 5%;
+    height: 70px;
+    width: 300px;
+    text-align: center;
+}
+
+.user_img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100px;
+    width: 100px;
+    background-image: url(img/usu.png);
+}
+
+.cerrarsesion {
+    float: right;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 200px;
+    width: 300px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding: 10px 20px;
+
+}
+
+.cerrarsesion button {
+    border-radius: 5px;
+    font-size: 17px;
+    height: 30px;
+}
+
 .menu_tienda{
     margin-top: 250px;
     position: fixed;
@@ -117,6 +172,7 @@ body{
 }
 .menu_tienda>a{
     display: block;
+    padding: 20px 20px !important;
     padding: 20px 20px;
     color: black;
     text-decoration: none;
@@ -129,4 +185,186 @@ body{
     background-color: black;
     color: white;
     transition: 40ms;
+}
+.div_general_tienda{
+    margin-top: 330px;
+    width: 80%;
+    height: 300px;
+    justify-content: space-around;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: row;
+    flex-flow: wrap;
+    color: black;
+    text-decoration: none;
+}
+.div_juegos_tienda{
+    width: 200px;
+    height: 300px;
+    text-decoration: none;
+    color: black;
+}
+.imagen_juegos{
+    width: 200px;
+    height: 230px;
+    transition: background-color 400ms ease;
+    border-radius: 2px;
+
+}
+.imagen_juegos:hover{
+    background-color: #E0E0E0;
+}
+.fondo_fijo {
+    height: 250px;
+    width: 100%;
+    background-image: url(img/halo.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin-top: 300px;
+    justify-content: space-around;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: row;
+    flex-flow: wrap;
+}
+.fondo_fijo h1{
+    color: white;
+}
+footer {
+    background-color: white;
+    padding: 20px;
+}
+
+.metodos_pago {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.metodos_pago img {
+    width: 100px;
+    height: 60px;
+    margin: 10px;
+}
+
+a{
+    color: black;
+    text-decoration: none;
+}
+
+.banner_zelda {
+    height: 250px;
+    width: 80%;
+    background-image: url(img/promoZeldaXL.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 30px;
+    align-items: center;
+    text-align: center;
+}
+.banner_ps {
+    height: 117px;
+    width: 93%;
+    background-image: url(img/promoPS.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 350px;
+    margin-bottom: 20px;
+    align-items: center;
+    text-align: center;
+}
+.banner_pc {
+    height: 100px;
+    width: 93%;
+    background-image: url(img/promoPC.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    align-items: center;
+    text-align: center;
+}
+.div_general_inicio{
+    margin-top: 20px;
+    width: 80%;
+    height: 300px;
+    justify-content: space-around;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: row;
+    flex-flow: wrap;
+    color: black;
+    text-decoration: none;
+}
+
+.div_general_biblioteca{
+    margin-top: 330px;
+    width: 80%;
+    height: 300px;
+    justify-content: space-around;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: row;
+    flex-flow: wrap;
+    color: white;
+    text-decoration: none;
+}
+
+.div_juego_biblio_cod{
+    background-image: url(img/ww2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 200px;
+    height: 300px;
+    text-decoration: none;
+}
+.div_juego_biblio_stree{
+    background-image: url(img/street-fighter.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 200px;
+    height: 300px;
+    text-decoration: none;
+}
+.div_juego_biblio_hollow{
+    background-image: url(img/hollowknight.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 200px;
+    height: 300px;
+    text-decoration: none;
+}
+.div_juego_biblio_metal{
+    background-image: url(img/metalgearsolid.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 200px;
+    height: 300px;
+    text-decoration: none;
+}
+
+.juego {
+margin-top: 0px;
+    width: 80%;
+    height: 300px;
+    justify-content: space-around;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: row;
+    flex-flow: wrap;
+    color: black;
+    text-decoration: none;    
+}
+
+#carouselExampleIndicators {
+    margin-top: 10px;
+    width: 40%;
+    height: 25%;
 }
