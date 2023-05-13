@@ -56,3 +56,4 @@
         En esta vista podemos observar el nombre, nickname y el identificador de usuario de la tabla usuarios, el usuario dependiente podrá verla y modificar,  eliminar o añadir según convenga. 
 
         En esta vista lo que podemos observar es el identificador de usuario, su nickname, el ID_juego, el nombre del juego y el PEGI. 
+
