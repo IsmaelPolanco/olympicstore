@@ -1,3 +1,31 @@
+<?php
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "olimpicstore_v3";
+
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+if (!$conn) {
+    die("Fallo al conectarse: " . mysqli_connect_error());
+}
+
+if (isset($_POST["update_price"])) {
+        $gameID = $_POST["game_id"];
+        $newPrice = $_POST["new_price"];
+
+        $sql = "UPDATE juegos SET precio = '$newPrice' WHERE ID_juego = '$gameID'";
+        $result = mysqli_query($conn, $sql);
+    }
+
+    // Eliminar juego
+    if (isset($_POST["delete_game"])) {
+        $gameID = $_POST["game_id"];
+
+        $sql = "DELETE FROM juegos WHERE ID_juego = '$gameID'";
+        $result = mysqli_query($conn, $sql);
+    }
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,7 +37,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
-                <link rel="stylesheet" href="style.css">
+                <link rel="stylesheet" href="css/style.css">
 
     </head>
     <body>
@@ -40,10 +68,34 @@
         <div class="div_general">
             <div class="banner_ps"></div>
             <div class="div_general_inicio">
-                <div class="div_juegos_tienda"><img src="img/cod.png" class="imagen_juegos"><b>COD WW2</b><br><p>29.99€</p></div>
-                <div class="div_juegos_tienda"><img src="img/hollow.png" class="imagen_juegos"><b>Hollow Knight</b><br><p>29.99€</p></div>
-                <div class="div_juegos_tienda"><img src="img/mgs.png" class="imagen_juegos"><b>Metal Gear Solid V</b><br><p>15.50€</p></div>
-                <div class="div_juegos_tienda"><img src="img/sfv.png" class="imagen_juegos"><b>Street Fighter</b><br><p>19.99€</p></div>
+                <div class="div_juegos_tienda"><img src="img/cod.png" class="imagen_juegos"><b>COD WW2</b><br> <?php
+                    $sql = "SELECT precio FROM juegos WHERE ID_juego = 4";
+                    $result = mysqli_query($conn, $sql);
+                    $row = mysqli_fetch_assoc($result);
+                    $precio = $row["precio"];
+                    echo "<p>$precio €</p>";
+                    ?></div>
+                <div class="div_juegos_tienda"><img src="img/hollow.png" class="imagen_juegos"><b>Hollow Knight</b><br> <?php
+                    $sql = "SELECT precio FROM juegos WHERE ID_juego = 3";
+                    $result = mysqli_query($conn, $sql);
+                    $row = mysqli_fetch_assoc($result);
+                    $precio = $row["precio"];
+                    echo "<p>$precio €</p>";
+                    ?></div>
+                <div class="div_juegos_tienda"><img src="img/mgs.png" class="imagen_juegos"><b>Metal Gear Solid</b><br> <?php
+                    $sql = "SELECT precio FROM juegos WHERE ID_juego = 1";
+                    $result = mysqli_query($conn, $sql);
+                    $row = mysqli_fetch_assoc($result);
+                    $precio = $row["precio"];
+                    echo "<p>$precio €</p>";
+                    ?></div>
+                <div class="div_juegos_tienda"><img src="img/sfv.png" class="imagen_juegos"><b>Street Fighter</b><br> <?php
+                    $sql = "SELECT precio FROM juegos WHERE ID_juego = 2";
+                    $result = mysqli_query($conn, $sql);
+                    $row = mysqli_fetch_assoc($result);
+                    $precio = $row["precio"];
+                    echo "<p>$precio €</p>";
+                    ?></div>
             </div>
             <div class="banner_pc"></div>
             <div class="div_general_inicio">

@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <title>OLIYMPIC STORE</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="style.css">
+                <link rel="stylesheet" href="css/style.css">
     </head>
     <body>  
         <div class="div_top">

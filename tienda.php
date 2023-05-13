@@ -55,6 +55,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                INSERT INTO bibliotecas_juegos(ID_biblioteca,ID_juego) VALUES ($ID_usuario,4);";
         $result = mysqli_multi_query($conn, $sql);
     }
+
+    if (isset($_POST["update_price"])) {
+        $gameID = $_POST["game_id"];
+        $newPrice = $_POST["new_price"];
+
+        $sql = "UPDATE juegos SET precio = '$newPrice' WHERE ID_juego = '$gameID'";
+        $result = mysqli_query($conn, $sql);
+    }
+
+    // Eliminar juego
+    if (isset($_POST["delete_game"])) {
+        $gameID = $_POST["game_id"];
+
+        $sql = "DELETE FROM juegos WHERE ID_juego = '$gameID'";
+        $result = mysqli_query($conn, $sql);
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -65,10 +81,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <title>OLYMPIC STORE</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-        
+
         <div class="div_top_tienda">
             <div class="usuario"> 
                 <div class="user_img"></div>
@@ -81,7 +97,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 ?>
             </div>
             <div class="cerrarsesion">
-                <a href="Login.php"><button type="submit">Cerrar Sesión</button> </a>
+                <a href="Login.php"><button type="submit">Cerrar Sesión</button></a>
+                <a href="administrar.php"><button type="button">Administrar Página</button></a>
             </div>
             OLYMPIC STORE
         </div>
@@ -94,50 +111,69 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <h1>ULTIMAS NOVEDADES</h1>
             <div class="div_general_tienda">
 
-                <!-- Formulario para el juego 1 -->
                 <form action="añadirjuego.php" method="post">
                     <div class="div_juegos_tienda">
                         <img src="img/metargearsolid.jpg" class="imagen_juegos">
                         <b>Metal Gear Solid</b><br>
-                        <p>29.99€</p>
+                        <?php
+                        $sql = "SELECT precio FROM juegos WHERE ID_juego = 1";
+                        $result = mysqli_query($conn, $sql);
+                        $row = mysqli_fetch_assoc($result);
+                        $precio = $row["precio"];
+                        echo "<p>$precio €</p>";
+                        ?>
                         <input type="hidden" name="ID_juego" value="1">
                         <button type="submit">Agregar al carrito</button>
                     </div>
                 </form>
 
-                <!-- Formulario para el juego 2 -->
                 <form action="añadirjuego.php" method="post">
                     <div class="div_juegos_tienda">
                         <img src="img/street-fighter.jpg" class="imagen_juegos">
                         <b>Street Fighter</b><br>
-                        <p>29.99€</p>
+                        <?php
+                        $sql = "SELECT precio FROM juegos WHERE ID_juego = 2";
+                        $result = mysqli_query($conn, $sql);
+                        $row = mysqli_fetch_assoc($result);
+                        $precio = $row["precio"];
+                        echo "<p>$precio €</p>";
+                        ?>
                         <input type="hidden" name="ID_juego" value="2">
                         <button type="submit">Agregar al carrito</button>
                     </div>
                 </form>
 
-                <!-- Formulario para el juego 3 -->
                 <form action="añadirjuego.php" method="post">
                     <div class="div_juegos_tienda">
                         <img src="img/hollowknight.jpg" class="imagen_juegos">
                         <b>Hollow Knight</b><br>
-                        <p>15.50€</p>
+                        <?php
+                        $sql = "SELECT precio FROM juegos WHERE ID_juego = 3";
+                        $result = mysqli_query($conn, $sql);
+                        $row = mysqli_fetch_assoc($result);
+                        $precio = $row["precio"];
+                        echo "<p>$precio €</p>";
+                        ?>                       
                         <input type="hidden" name="ID_juego" value="3">
                         <button type="submit">Agregar al carrito</button>
                     </div>
                 </form>
-                
+
                 <form action="añadirjuego.php" method="post">
                     <div class="div_juegos_tienda">
                         <img src="img/ww2.jpg" class="imagen_juegos">
                         <b>Call Of Duty WW2</b><br>
-                        <p>29.99€</p>
+                        <?php
+                        $sql = "SELECT precio FROM juegos WHERE ID_juego = 4";
+                        $result = mysqli_query($conn, $sql);
+                        $row = mysqli_fetch_assoc($result);
+                        $precio = $row["precio"];
+                        echo "<p>$precio €</p>";
+                        ?>  
                         <input type="hidden" name="ID_juego" value="4">
                         <button type="submit">Agregar al carrito</button>
                     </div>
                 </form>
-
-
             </div> 
             <div class="fondo_fijo">
                 <h1>COMPRA CON TOTAL SEGURIDAD EN TU PAGINA WEB FAVORITA</h1>

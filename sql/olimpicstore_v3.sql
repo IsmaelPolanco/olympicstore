@@ -189,7 +189,7 @@ DELIMITER ;
 --
 DROP TABLE IF EXISTS `administracion_usuarios`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`olympicadmin`@`localhost` SQL SECURITY DEFINER VIEW `administracion_usuarios`  AS SELECT `usuarios`.`nombre` AS `nombre`, `usuarios`.`nickname` AS `nickname`, `usuarios`.`ID_usuario` AS `ID_usuario` FROM `usuarios``usuarios`  ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`olympicadmin`@`localhost` SQL SECURITY DEFINER VIEW `administracion_usuarios`  AS SELECT `usuarios`.`nombre` AS `nombre`, `usuarios`.`nickname` AS `nickname`, `usuarios`.`ID_usuario` AS `ID_usuario` FROM `usuarios` AS `usuarios`  ;
 
 -- --------------------------------------------------------
 
