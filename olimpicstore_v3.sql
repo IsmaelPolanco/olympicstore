@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-05-2023 a las 09:50:35
+-- Tiempo de generación: 13-05-2023 a las 15:05:07
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.1.12
 
@@ -93,7 +93,9 @@ INSERT INTO `bibliotecas_juegos` (`ID_biblioteca`, `ID_juego`) VALUES
 (3, 1),
 (3, 3),
 (3, 4),
-(4, 4);
+(4, 4),
+(5, 2),
+(5, 4);
 
 -- --------------------------------------------------------
 
@@ -105,18 +107,19 @@ CREATE TABLE `juegos` (
   `ID_juego` int(3) NOT NULL,
   `nombre` varchar(500) DEFAULT NULL,
   `PEGI` int(2) DEFAULT NULL,
-  `descripcion` varchar(1000) DEFAULT NULL
+  `descripcion` varchar(1000) DEFAULT NULL,
+  `precio` decimal(10,2) DEFAULT 0.00
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `juegos`
 --
 
-INSERT INTO `juegos` (`ID_juego`, `nombre`, `PEGI`, `descripcion`) VALUES
-(1, 'Metal Gear Solid', 18, 'Juego de sigilo'),
-(2, 'Street Fighter', 12, 'Juego de peleas'),
-(3, 'Hollow Knight', 12, 'Juego estilo Metroidvaina'),
-(4, 'Call Of Duty', 18, 'Juego Shooter');
+INSERT INTO `juegos` (`ID_juego`, `nombre`, `PEGI`, `descripcion`, `precio`) VALUES
+(1, 'Metal Gear Solid', 18, 'Juego de sigilo', '15.50'),
+(2, 'Street Fighter', 12, 'Juego de peleas', '19.99'),
+(3, 'Hollow Knight', 12, 'Juego estilo Metroidvaina', '29.99'),
+(4, 'Call Of Duty', 18, 'Juego Shooter', '29.99');
 
 --
 -- Disparadores `juegos`
@@ -189,7 +192,7 @@ DELIMITER ;
 --
 DROP TABLE IF EXISTS `administracion_usuarios`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`olympicadmin`@`localhost` SQL SECURITY DEFINER VIEW `administracion_usuarios`  AS SELECT `usuarios`.`nombre` AS `nombre`, `usuarios`.`nickname` AS `nickname`, `usuarios`.`ID_usuario` AS `ID_usuario` FROM `usuarios`AS `usuarios`  ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`olympicadmin`@`localhost` SQL SECURITY DEFINER VIEW `administracion_usuarios`  AS SELECT `usuarios`.`nombre` AS `nombre`, `usuarios`.`nickname` AS `nickname`, `usuarios`.`ID_usuario` AS `ID_usuario` FROM `usuarios``usuarios`  ;
 
 -- --------------------------------------------------------
 
