@@ -18,7 +18,6 @@ if (isset($_POST["update_price"])) {
         $result = mysqli_query($conn, $sql);
     }
 
-    // Eliminar juego
     if (isset($_POST["delete_game"])) {
         $gameID = $_POST["game_id"];
 

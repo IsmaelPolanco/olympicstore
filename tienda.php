@@ -23,16 +23,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION["ID_usuario"] = $row["ID_usuario"];
         $_SESSION["nickname"] = $row["nickname"];
 
-        // Obtener ID de usuario
         $ID_usuario = $_SESSION["ID_usuario"];
 
-        // Obtener datos del juego del formulario
         $ID_juego = $_POST["ID_juego"];
         $nombre = $_POST["nombre"];
         $PEGI = $_POST["PEGI"];
         $descripcion = $_POST["descripcion"];
 
-        // Insertar juego en la tabla juegos
         $sql = "INSERT INTO juegos (ID_juego, nombre, PEGI, descripcion ) VALUES ('$ID_juego', '$nombre', '$PEGI', '$descripcion')";
         $result = mysqli_query($conn, $sql);
 
@@ -46,7 +43,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if ($result) {
-        // Redireccionar a la página de inicio
         header("location: biblioteca.php");
 
         $sql = "INSERT INTO bibliotecas_juegos(ID_biblioteca,ID_juego) VALUES ($ID_usuario,1); 

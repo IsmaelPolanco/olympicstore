@@ -22,13 +22,11 @@
         $password = "";
         $dbname = "olimpicstore_v3";
 
-        // Establecer conexión con la base de datos
         $conn = mysqli_connect($servername, $username, $password, $dbname);
         if (!$conn) {
             die("Fallo al conectarse: " . mysqli_connect_error());
         }
 
-        // Actualizar el precio del juego
         if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["update_price"])) {
             $gameID = $_POST["game_id"];
             $newPrice = $_POST["new_price"];
@@ -41,7 +39,6 @@
             }
         }
 
-        // Eliminar un juego
         if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_game"])) {
             $gameID = $_POST["game_id"];
 
